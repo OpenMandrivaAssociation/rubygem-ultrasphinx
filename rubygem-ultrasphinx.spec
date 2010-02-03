@@ -1,6 +1,6 @@
 %define	oname	ultrasphinx
 
-Summary:	Ruby on Rails configurator and client to the Sphinx fulltext search engine.
+Summary:	Ruby on Rails configurator and client to the Sphinx fulltext search engine
 Name:		rubygem-%{oname}
 Version:	1.11
 Release:	%mkrel 1
