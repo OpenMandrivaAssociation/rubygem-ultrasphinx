@@ -3,14 +3,16 @@
 Summary:	Ruby on Rails configurator and client to the Sphinx fulltext search engine
 Name:		rubygem-%{oname}
 Version:	1.11
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	Academic Free License (AFL) v. 3.0
 Group:		Development/Ruby
 URL:		http://%{oname}.rubyforge.org/
 Source0:	http://gems.rubyforge.org/gems/%{oname}-%{version}.gem
+Patch0:		ultrasphinx-1.11-prefix.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ruby-RubyGems
 BuildArch:	noarch
+Requires:	sphinx
 
 %description
 Ruby on Rails configurator and client to the Sphinx fulltext search engine.
@@ -22,6 +24,9 @@ Ruby on Rails configurator and client to the Sphinx fulltext search engine.
 %install
 rm -rf %{buildroot}
 gem install -E -n %{buildroot}%{_bindir} --local --install-dir %{buildroot}/%{ruby_gemdir} --force %{SOURCE0}
+cd %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}
+patch -p0 -i %{PATCH0}
+
 rm -rf %{buildroot}%{ruby_gemdir}/{cache,gems/%{oname}-%{version}/ext}
 find %{buildroot} -name \*.rb -o -name \*.cgi |xargs sed -e 's#/usr/local/bin/ruby#/usr/bin/env ruby#g' -i
 
