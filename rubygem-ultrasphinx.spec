@@ -22,7 +22,7 @@ Ruby on Rails configurator and client to the Sphinx fulltext search engine.
 %patch0 -p0 -b .prefix~
 
 %build
-%gem_build -f '(.*.rb|Rakefile|tasks)'
+%gem_build -f '(.*.rb|Rakefile|tasks|vendor)'
 
 %install
 rm -rf %{buildroot}
