@@ -17,6 +17,15 @@ Requires:	sphinx
 %description
 Ruby on Rails configurator and client to the Sphinx fulltext search engine.
 
+%package        doc
+Summary:        Documentation for %{name}
+Group:          Books/Computer
+Requires:       %{name} = %{EVRD}
+BuildArch:      noarch
+
+%description    doc
+Documents, RDoc & RI documentation for %{name}.
+
 %prep
 %setup -q
 %patch0 -p0 -b .prefix~
@@ -33,13 +42,6 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %files
-%doc %{ruby_gemdir}/doc/%{rbname}-%{version}
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/DEPLOYMENT_NOTES
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/LICENSE
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/RAKE_TASKS
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/README
-%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/TODO
 %dir %{ruby_gemdir}/gems/%{rbname}-%{version}
 %{ruby_gemdir}/gems/%{rbname}-%{version}/Rakefile
 %{ruby_gemdir}/gems/%{rbname}-%{version}/init.rb
@@ -52,3 +54,12 @@ rm -rf %{buildroot}
 %dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor
 %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/*
 %{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
+
+%files doc
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/DEPLOYMENT_NOTES
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/LICENSE
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/RAKE_TASKS
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/README
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/TODO
+%doc %{ruby_gemdir}/doc/%{rbname}-%{version}
