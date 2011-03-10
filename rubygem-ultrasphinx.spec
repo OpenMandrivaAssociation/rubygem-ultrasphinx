@@ -20,7 +20,7 @@ Ruby on Rails configurator and client to the Sphinx fulltext search engine.
 
 %package        doc
 Summary:        Documentation for %{name}
-Group:          Books/Computer
+Group:          Books/Computer books
 Requires:       %{name} = %{EVRD}
 BuildArch:      noarch
 
