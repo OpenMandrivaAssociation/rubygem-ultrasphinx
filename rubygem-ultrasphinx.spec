@@ -10,6 +10,7 @@ License:	Academic Free License (AFL) v. 3.0
 URL:		http://blog.evanweaver.com/files/doc/fauna/ultrasphinx/
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 Patch0:		ultrasphinx-1.11-prefix.patch
+Patch1:		ultrasphinx-1.11-test-dispatch-env-shebang.patch
 BuildRequires:	rubygems >= 1.2
 BuildArch:	noarch
 Requires:	sphinx
@@ -29,6 +30,7 @@ Documents, RDoc & RI documentation for %{name}.
 %prep
 %setup -q
 %patch0 -p1 -b .prefix~
+%patch1 -p1 -b .shebang~
 
 %build
 %gem_build -f '(.*.rb|Rakefile|tasks|vendor)'
