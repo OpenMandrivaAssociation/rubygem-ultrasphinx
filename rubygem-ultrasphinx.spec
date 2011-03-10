@@ -1,16 +1,16 @@
-%define	oname	ultrasphinx
+# Generated from ultrasphinx-1.11.gem by gem2rpm5 -*- rpm-spec -*-          
+%define	rbname	ultrasphinx
 
 Summary:	Ruby on Rails configurator and client to the Sphinx fulltext search engine
-Name:		rubygem-%{oname}
+Name:		rubygem-%{rbname}
 Version:	1.11
-Release:	%mkrel 3
-License:	Academic Free License (AFL) v. 3.0
+Release:	1
 Group:		Development/Ruby
-URL:		http://%{oname}.rubyforge.org/
-Source0:	http://gems.rubyforge.org/gems/%{oname}-%{version}.gem
+License:	Academic Free License (AFL) v. 3.0
+URL:		http://blog.evanweaver.com/files/doc/fauna/ultrasphinx/
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 Patch0:		ultrasphinx-1.11-prefix.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	ruby-RubyGems
+BuildRequires:	rubygems >= 1.2
 BuildArch:	noarch
 Requires:	sphinx
 
@@ -18,23 +18,37 @@ Requires:	sphinx
 Ruby on Rails configurator and client to the Sphinx fulltext search engine.
 
 %prep
+%setup -q
+%patch0 -p0 -b .prefix~
 
 %build
+%gem_build -f '(.*.rb|Rakefile|tasks)'
 
 %install
 rm -rf %{buildroot}
-gem install -E -n %{buildroot}%{_bindir} --local --install-dir %{buildroot}/%{ruby_gemdir} --force %{SOURCE0}
-cd %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}
-patch -p0 -i %{PATCH0}
 
-rm -rf %{buildroot}%{ruby_gemdir}/{cache,gems/%{oname}-%{version}/ext}
-find %{buildroot} -name \*.rb -o -name \*.cgi |xargs sed -e 's#/usr/local/bin/ruby#/usr/bin/env ruby#g' -i
+%gem_install
 
 %clean
 rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
-%doc %{ruby_gemdir}/doc/%{oname}-%{version}
-%{ruby_gemdir}/gems/%{oname}-%{version}
-%{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
+%doc %{ruby_gemdir}/doc/%{rbname}-%{version}
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/DEPLOYMENT_NOTES
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/LICENSE
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/RAKE_TASKS
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/README
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/TODO
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
+%{ruby_gemdir}/gems/%{rbname}-%{version}/Rakefile
+%{ruby_gemdir}/gems/%{rbname}-%{version}/init.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/tasks
+%{ruby_gemdir}/gems/%{rbname}-%{version}/tasks/*
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/test
+%{ruby_gemdir}/gems/%{rbname}-%{version}/test/*
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/vendor
+%{ruby_gemdir}/gems/%{rbname}-%{version}/vendor/*
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
