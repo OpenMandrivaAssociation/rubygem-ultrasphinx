@@ -1,0 +1,16 @@
+--- rubygem-ultrasphinx-1.11/test/integration/app/public/dispatch.cgi~	2011-03-10 07:17:23.265847014 +0100
++++ rubygem-ultrasphinx-1.11/test/integration/app/public/dispatch.cgi	2011-03-10 07:21:26.412847014 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/ruby
++#!/usr/bin/env ruby
+ 
+ require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
+ 
+--- rubygem-ultrasphinx-1.11/test/integration/app/public/dispatch.rb~	2011-03-10 07:17:23.276847014 +0100
++++ rubygem-ultrasphinx-1.11/test/integration/app/public/dispatch.rb	2011-03-10 07:21:38.252847014 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/ruby
++#!/usr/bin/env ruby
+ 
+ require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
+ 
