@@ -65,3 +65,31 @@ rm -rf %{buildroot}
 %doc %{ruby_gemdir}/gems/%{rbname}-%{version}/README
 %doc %{ruby_gemdir}/gems/%{rbname}-%{version}/TODO
 %doc %{ruby_gemdir}/doc/%{rbname}-%{version}
+
+
+%changelog
+* Thu Mar 10 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.11-4
++ Revision: 643273
+- use absolute path to /usr/sbin/sphinx-searchd
+- ship docs in a separate subpackage
+- use gem2rpm5 layout..
+
+* Sun Sep 19 2010 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.11-3mdv2011.0
++ Revision: 579883
+- fix path to indexer & searchd
+- add dependency on sphinx
+
+* Sat Sep 18 2010 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.11-2mdv2011.0
++ Revision: 579744
+- fix license
+- rebuild for new auto requires/provides
+- don't ship gem archive
+
+* Wed Feb 03 2010 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.11-1mdv2010.1
++ Revision: 500501
+- fix summary-ended-with-dot
+- import rubygem-ultrasphinx
+
+
+* Mon Feb  3 2010 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.11-1
+- initial release
