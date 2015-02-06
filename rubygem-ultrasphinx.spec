@@ -4,7 +4,7 @@
 Summary:	Ruby on Rails configurator and client to the Sphinx fulltext search engine
 Name:		rubygem-%{rbname}
 Version:	1.11
-Release:	4
+Release:	5
 Group:		Development/Ruby
 License:	Academic Free License (AFL) v. 3.0
 URL:		http://blog.evanweaver.com/files/doc/fauna/ultrasphinx/
